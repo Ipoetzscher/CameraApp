@@ -1,9 +1,13 @@
 {
   "images" : [
     {
-      "filename" : "Screenshot 2023-06-08 at 11.59.46 PM.png",
+      "filename" : "Screenshot 2024-03-06 at 11.48.53 AM.png",
       "idiom" : "universal",
       "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
     },
     {
       "idiom" : "universal",
