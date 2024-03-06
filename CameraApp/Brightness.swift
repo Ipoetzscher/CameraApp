@@ -1,5 +1,5 @@
 //
-//  File1.swift
+//  Brightness.swift
 //  CameraApp
 //
 //  Created by India Poetzscher on 3/6/24.

@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+import Foundation
+import UIKit
 
 struct ContentView: View {
     
@@ -14,31 +16,51 @@ struct ContentView: View {
     @State private var sourceType: UIImagePickerController.SourceType = .photoLibrary
     
     var body: some View {
-        VStack {
-            Image(uiImage: image ?? UIImage(named: "Image")!)
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-            HStack {
-                Button {
-                    isShowing = true
-                    self.sourceType = .photoLibrary
-                } label: {
-                    Text("choose photo")
-                }
+        NavigationView {
+            VStack(spacing: 60) {
+                Text("Select a photo from camera roll or take a photo to screen for melanoma")
+                HStack {
+                    Button {
+                        isShowing = true
+                        self.sourceType = .photoLibrary
+                    } label: {
+                        Text("upload a photo")
+                            .fontWeight(.bold)
+                    }
+                    Spacer()
+                    Button {
+                        isShowing = true
+                        self.sourceType = .camera
+                    } label: {
+                        Text("take photo")
+                            .fontWeight(.bold)
+                    }
+                }.padding(.horizontal, 40)
+                Image(uiImage: image ?? UIImage(named: "Image")!)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
                 Spacer()
-                Button {
-                    isShowing = true
-                    self.sourceType = .camera
-                } label: {
-                    Text("take photo")
+                if let image = image {
+                    if isImageTooDark(image: image) {
+                        Text("Image is too dark‼️")
+                            .foregroundColor(.red)
+                            .fontWeight(.bold)
+                            .font(.title3)
+                    } else {
+                        Text("Image looks good✅")
+                            .foregroundColor(.green)
+                            .font(.title3)
+                    }
+                } else {
+                    Text("")
                 }
             }
-            .padding(.horizontal, 40)
+            .padding()
+            .navigationTitle("Melanoma Screener")
+            .sheet(isPresented: $isShowing, content: {
+                ImagePicker(image: $image, isShowing: $isShowing, sourceType: self.sourceType)
+            })
         }
-        .sheet(isPresented: $isShowing, content: {
-            ImagePicker(image: $image, isShowing: $isShowing, sourceType: self.sourceType)
-        })
-        .padding()
     }
 }
 
