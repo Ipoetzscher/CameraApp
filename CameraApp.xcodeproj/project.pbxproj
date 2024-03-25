@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		59265FBD2B98FADC00AEAE33 /* Brightness.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59265FBC2B98FADC00AEAE33 /* Brightness.swift */; };
+		59265FBF2B996C6D00AEAE33 /* Blurriness.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59265FBE2B996C6D00AEAE33 /* Blurriness.swift */; };
 		5974A7D72A22D32500664890 /* CameraAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5974A7D62A22D32500664890 /* CameraAppApp.swift */; };
 		5974A7D92A22D32500664890 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5974A7D82A22D32500664890 /* ContentView.swift */; };
 		5974A7DB2A22D32700664890 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5974A7DA2A22D32700664890 /* Assets.xcassets */; };
@@ -17,6 +18,7 @@
 
 /* Begin PBXFileReference section */
 		59265FBC2B98FADC00AEAE33 /* Brightness.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Brightness.swift; sourceTree = "<group>"; };
+		59265FBE2B996C6D00AEAE33 /* Blurriness.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Blurriness.swift; sourceTree = "<group>"; };
 		5974A7D32A22D32500664890 /* CameraApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CameraApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5974A7D62A22D32500664890 /* CameraAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraAppApp.swift; sourceTree = "<group>"; };
 		5974A7D82A22D32500664890 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -58,6 +60,7 @@
 				5974A7D62A22D32500664890 /* CameraAppApp.swift */,
 				5974A7D82A22D32500664890 /* ContentView.swift */,
 				59265FBC2B98FADC00AEAE33 /* Brightness.swift */,
+				59265FBE2B996C6D00AEAE33 /* Blurriness.swift */,
 				5974A7E42A22D5D000664890 /* ImagePicker.swift */,
 				5974A7DA2A22D32700664890 /* Assets.xcassets */,
 				5974A7DC2A22D32700664890 /* Preview Content */,
@@ -143,6 +146,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				59265FBF2B996C6D00AEAE33 /* Blurriness.swift in Sources */,
 				5974A7E52A22D5D000664890 /* ImagePicker.swift in Sources */,
 				5974A7D92A22D32500664890 /* ContentView.swift in Sources */,
 				59265FBD2B98FADC00AEAE33 /* Brightness.swift in Sources */,

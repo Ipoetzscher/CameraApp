@@ -9,11 +9,13 @@ import SwiftUI
 import Foundation
 import UIKit
 
+
 struct ContentView: View {
     
+    let imageName = "image2"
     @State var isShowing = false
     @State var image: UIImage?
-    @State private var sourceType: UIImagePickerController.SourceType = .photoLibrary
+    @State var sourceType: UIImagePickerController.SourceType
     
     var body: some View {
         NavigationView {
@@ -21,16 +23,18 @@ struct ContentView: View {
                 Text("Select a photo from camera roll or take a photo to screen for melanoma")
                 HStack {
                     Button {
-                        isShowing = true
                         self.sourceType = .photoLibrary
+                        isShowing = true
+                        
                     } label: {
                         Text("upload a photo")
                             .fontWeight(.bold)
                     }
                     Spacer()
                     Button {
-                        isShowing = true
                         self.sourceType = .camera
+                        isShowing = true
+                        
                     } label: {
                         Text("take photo")
                             .fontWeight(.bold)
@@ -40,16 +44,17 @@ struct ContentView: View {
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                 Spacer()
+                
                 if let image = image {
-                    if isImageTooDark(image: image) {
-                        Text("Image is too dark‼️")
-                            .foregroundColor(.red)
-                            .fontWeight(.bold)
-                            .font(.title3)
+                    if isImageTooDark(image: image) && isImageBlurred(image: image) {
+                        Text("Image is too blurry and too dark")
+                    } else if isImageBlurred(image: image) {
+                        Text("Image is blurry but brightness looks good!")
+
+                    } else if isImageTooDark(image: image) {
+                        Text("Image is clear but too dark")
                     } else {
-                        Text("Image looks good✅")
-                            .foregroundColor(.green)
-                            .font(.title3)
+                        Text("Image looks good!")
                     }
                 } else {
                     Text("")
@@ -58,7 +63,7 @@ struct ContentView: View {
             .padding()
             .navigationTitle("Melanoma Screener")
             .sheet(isPresented: $isShowing, content: {
-                ImagePicker(image: $image, isShowing: $isShowing, sourceType: self.sourceType)
+                ImagePicker(image: $image, isShowing: $isShowing, sourceType: self.$sourceType)
             })
         }
     }
@@ -66,6 +71,22 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(sourceType: .camera)
     }
 }
+
+
+//                if let image = image {
+//                    if isImageBlurred(image: image) {
+//                        Text("Image is too blury‼️")
+//                            .foregroundColor(.red)
+//                            .fontWeight(.bold)
+//                            .font(.title3)
+//                    } else {
+//                        Text("Image is good✅")
+//                            .foregroundColor(.green)
+//                            .font(.title3)
+//                    }
+//                } else {
+//                    Text("")
+//                }

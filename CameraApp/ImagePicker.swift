@@ -11,7 +11,7 @@ import UIKit
 struct ImagePicker: UIViewControllerRepresentable {
     @Binding var image: UIImage?
     @Binding var isShowing: Bool
-    var sourceType: UIImagePickerController.SourceType
+    @Binding var sourceType: UIImagePickerController.SourceType
     
     func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {}
     
